@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Limpar Cache</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        margin: 0;
+        width: 300px;
+        text-align: center;
+        background-color: #f9f9f9;
+      }
+      h1 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #333;
+      }
+      p {
+        font-size: 14px;
+        margin-top: 10px;
+        color: #555;
+      }
+      button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      #status {
+        margin-top: 15px;
+        font-size: 14px;
+        color: #007700;
+      }
+    </style>
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <h1>Limpar Cache</h1>
+    <p>Clique no botão abaixo para limpar o cache e recarregar a aba atual sem utilizar dados armazenados.</p>
+    <button id="limparCache">Limpar Cache</button>
+    <p id="status"></p>
+    <script>document.addEventListener("DOMContentLoaded", () => {
+      const limparBtn = document.getElementById("limparCache");
+      limparBtn.addEventListener("click", () => {
+        chrome.runtime.sendMessage({ action: "clearCache" }, (response) => {
+          document.getElementById("status").textContent = response.status;
+        });
+      });
+    });
+    </script>
+  </body>
+</html>
