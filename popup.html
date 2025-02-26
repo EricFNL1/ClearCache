@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <title>Limpar Cache</title>
     <style>
+      /* Animação para o conteúdo aparecer suavemente */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
       body {
         font-family: Arial, sans-serif;
         padding: 20px;
@@ -11,6 +23,9 @@
         width: 300px;
         text-align: center;
         background-color: #f9f9f9;
+
+        /* Faz o popup “surgir” suavemente */
+        animation: fadeIn 0.4s ease-out;
       }
       h1 {
         font-size: 20px;
@@ -22,6 +37,8 @@
         margin-top: 10px;
         color: #555;
       }
+
+      /* Botões com efeito de hover */
       button {
         background-color: #22bbd9;
         color: white;
@@ -32,10 +49,16 @@
         font-size: 16px;
         cursor: pointer;
         margin: 5px;
+        
+        /* Transições para animação suave */
+        transition: transform 0.3s, background-color 0.3s;
       }
       button:hover {
         background-color: #4594a0;
+        transform: scale(1.05);
       }
+
+      /* Mensagem de status */
       #status {
         margin-top: 15px;
         font-size: 14px;
