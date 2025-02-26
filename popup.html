@@ -30,7 +30,7 @@
         border-radius: 5px;
         font-size: 16px;
         cursor: pointer;
-        transition: background-color 0.3s ease;
+        margin: 5px;
       }
       button:hover {
         background-color: #45a049;
@@ -41,21 +41,18 @@
         color: #007700;
       }
     </style>
-    <script src="popup.js"></script>
   </head>
   <body>
     <h1>Limpar Cache</h1>
-    <p>Clique no botão abaixo para limpar o cache e recarregar a aba atual sem utilizar dados armazenados.</p>
-    <button id="limparCache">Limpar Cache</button>
+    <p>Escolha uma das opções abaixo:</p>
+
+    <!-- Botões sem inline script -->
+    <button id="limparSite">Limpar apenas o site atual</button>
+    <button id="limparTudo">Limpar todo o período do navegador</button>
+
     <p id="status"></p>
-    <script>document.addEventListener("DOMContentLoaded", () => {
-      const limparBtn = document.getElementById("limparCache");
-      limparBtn.addEventListener("click", () => {
-        chrome.runtime.sendMessage({ action: "clearCache" }, (response) => {
-          document.getElementById("status").textContent = response.status;
-        });
-      });
-    });
-    </script>
+
+    <!-- Carregue seu script aqui, sem inline code -->
+    <script src="popup.js"></script>
   </body>
 </html>
